@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %}
+    <link rel="stylesheet" href="{% static 'css/signup_welcom.css' %}">
+    <title>login</title>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav id="topmenu"> <!--nav 메뉴바-->
+            <ul>
+                <li><a class="menulink" href="{% url 'main' %}">Home</a></li>
+                <li><a class="menulink" href="{% url 'free_read' %}">자유게시판</a></li>
+                <li><a class="menulink" href="{% url 'review_read' %}">리뷰게시판</a></li>
+            </ul>
+        </nav>
+    </header>
+     {% block content %}
+     <form method="POST">
+        {% csrf_token %}
+        <div class="field">
+            {{ user.username }} 회원님 회원가입이 완료되었습니다.
+        </div>
+
+     </form>
+     {% endblock %}

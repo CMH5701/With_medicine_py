@@ -1,0 +1,43 @@
+{% extends 'review_read.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static 'css/review_search.css' %}" type = "text/css"> <!-- css 파일 연결 -->
+    <title>review_read</title>
+{% endblock %}
+
+{% block content %}
+
+    {% if not review_board %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+        <div id="search-review">
+        <div id="search-02">
+            <form class="search-form" action="{% url 'search' %}" method="post">
+                {% csrf_token %}
+                <input type="search" placeholder="게시글 검색하기" aria-label="Search" name="q" value="{{q}}">
+                <button class="btn-review-success" type="submit">검색</button>
+            </form> 
+        </div>
+    </div>
+
+        {% for review_board in review_board.all %}
+        <div class="container"> 
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ review_board.title }}</h1>
+                    <p>{{ review_board.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ review_board.body }}<a href="{% url 'review_detail' review_board.id %}"> ...자세히 보기</a></p> 
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

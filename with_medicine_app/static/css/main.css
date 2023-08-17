@@ -1,0 +1,421 @@
+body {
+    margin: 0; /* 페이지의 기본 마진 제거 */
+    font-family: Arial, sans-serif; /* 원하는 폰트 설정 */
+}
+
+/* topmenu.css 파일 */
+#topmenu {
+    width: 80%;
+    background-color: #ffffff;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#topmenu img {
+    width: 145px;
+    height: auto;
+    padding: 0 15px;
+}
+
+#topmenu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    margin-left: 10px;
+    width: 100%;
+}
+
+#topmenu li {
+    margin: 0 10px;
+}
+
+#topmenu .menulink {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    padding: 8px 15px;
+    white-space: nowrap;
+}
+
+#topmenu .menulink:hover {
+    color: rgb(0 102 255);
+}
+
+#login-signup {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 0 20px;
+    max-width: 300px;
+    margin-left: auto; /* 로고와 메뉴바 간의 공간을 최대한 확보 */
+}
+
+#login-signup-text {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+
+
+
+
+/* 메인배너 이미지 스타일 */
+#main-banner {
+    text-align: center; /* 이미지를 가운데 정렬 */
+    padding: 20px 0; /* 위아래로 30px 패딩 추가 */
+}
+#main-banner img {
+    width: 100%; /* 이미지를 부모 요소의 100% 너비로 설정 */
+    height: 450px;
+    max-width: 100%;
+    opacity: 0.65; /* 이미지 불투명도 65% */
+}
+
+/* 이미지 가운데 텍스트*/
+#main-banner .banner-text {
+    position: absolute; /* 텍스트 위치 고정 */
+    top: 35%; /* 위에서 35% 밀어내기 */
+    left: 50%; /* 왼쪽에서 50% 밀어내기 */
+    transform: translate(-50%, -50%); /* 텍스트 수평 수직 중앙 정렬 */
+    color: #4e4e4e;
+    font-size: 30px;
+    font-weight: bold;
+}
+.search-form-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    margin-left: 20%;
+}
+
+.search-form-main input[type="search"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 40%;
+    text-align: center;
+}
+
+.search-form-main button {
+    background-color: #5495F6;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form-main button:hover {
+    background-color: #4474C4;
+}
+
+/* 약 모아보기 그리드 스타일 */
+
+#grid-banner {
+    text-align: center; /* 이미지를 가운데 정렬 */
+    padding: 20px 0; /* 위아래로 30px 패딩 추가 */
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* 기존 gap 값인 20px를 10px로 변경 */
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-top: 50px; /* 카드 위쪽과의 간격을 설정합니다. */
+    margin-bottom: 10px; /* 카드 아래쪽과의 간격을 설정합니다. */
+}
+
+.grid-item {
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 15px 15px 0 0; /* 상단 모서리만 둥글게 처리 */
+}
+
+.image-name {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 10px;
+    color: #444;
+}
+
+
+
+
+/* board-section 스타일 */
+.board-section {
+    margin: 20px;
+}
+
+/* board-square 스타일 */
+.board-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    gap: 50px; /* 게시판 카드 사이의 간격을 20px로 설정 */
+}
+
+.square-box {
+    display: grid;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    width: 350px;
+    height: 150px;
+    text-align: center;
+}
+
+.square-box p {
+    margin: 0; /* 기본 마진 제거 */
+    line-height: 1.5; /* 줄 높이 조정 */
+}
+
+.thin-box-01,
+.thin-box-02 {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.thin-box {
+    width: 250px;
+    height: 30px;
+    background-color: #5495F6;
+    border-radius: 10px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.thin-box:hover {
+    transform: translateY(-3px);
+
+}
+
+.thin-box-board {
+    width: 150px;
+    height: 30px;
+    background-color: #5495F6;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.board-body {
+    padding: 10px;
+    background-color: #F5F5F5;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 1px solid #cecece;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    font-size: 14px;
+    line-height: 1.5;
+    width: 250px; /* 카드의 너비를 늘림 */
+    height: 50px; /* 카드의 높이를 늘림 */
+}
+
+/* 전문의 */
+.profiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    margin-top: 50px; /* 카드 위쪽과의 간격을 설정합니다. */
+    flex-wrap: wrap; /* 내용이 너비를 벗어날 경우 다음 줄로 넘어가도록 설정 */
+    gap: 20px; /* 카드 간격을 조정합니다. */
+}
+
+.profile {
+    display: flex;
+    gap: 5%;
+    flex-direction:  row;
+    align-items: la baseline; /* 카드 내용을 수평 왼쪽  정렬 */
+    max-width: 400px; /* 최대 너비를 설정하여 반응형 처리 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    margin-right: 13px;
+    border: 1px solid #cecece;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.profile-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* footer css */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.f_box{
+    background-color: rgb(32,88,169);
+    text-align:left;
+    display: inline-block;
+    width: 100%;
+    color: #ffffff;
+    position: relative;
+    margin-top: 200px;
+ }
+ #bottom_menu ul{
+    display: flex;   
+    margin-left: 170px;
+    margin-bottom: 15px;
+    list-style: none; /* 리스트 스타일 제거 */
+ }
+ #bottom_menu li{
+    margin: 8px;
+ }
+ .items_block{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-right: 145px;
+ }
+ .footer_content {
+    margin-bottom: 10px;
+    margin-left: 50px;
+ }
+ .items{
+    margin: 0px 30px 30px 30px;
+ }
+.items li{
+    margin: 10px;
+    list-style: none;
+    margin-right: 80px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+
+    .search-form-main {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 20px; /* 좌우 여백 추가 */
+        box-sizing: border-box; /* 패딩까지 포함하여 너비 조절 */
+    }
+
+    .search-form-main input[type="search"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .search-form-main button {
+        width: 40%;
+        margin-top: 10px;
+    }
+
+    .board-section {
+        margin: 10px;
+    }
+
+    .board-square {
+        display: block; /* 세로 배치로 변경 */
+        height: auto; /* 높이를 자동으로 설정하여 내용에 맞게 조정 */
+        gap: 20px; /* 게시판 카드 사이의 간격을 20px로 설정 */
+    }
+
+    .square-box {
+        width: 90%; /* 너비를 화면 가득 차도록 설정 */
+        margin-top: 30px; /* 상단과의 간격 조정 */
+    }
+
+    .thin-box-01,
+    .thin-box-02 {
+        margin: 0 20px; /* 좌우 여백을 설정하여 카드가 너무 붙어있지 않게 함 */
+        margin-top: 3px; /* 상단과의 간격 조정 */
+    }
+
+    .thin-box,
+    .thin-box-board {
+        width: 90%; /* 너비를 화면 가득 차도록 설정 */
+        margin-left: 10px; /* 왼쪽 여백 제거 */
+    }
+
+    .board-body {
+        width: 90%; /* 너비를 화면 가득 차도록 설정 */
+        height: auto; /* 높이를 자동으로 설정하여 내용에 맞게 조정 */
+    }
+
+    .profile-specialist {
+        max-width: 100%; /* 모바일 화면에서 카드가 전체 너비를 차지하도록 설정 */
+        margin: 0 10px; /* 좌우 여백을 설정하여 카드가 너무 붙어있지 않게 함 */
+    }
+
+    .f_box {
+        margin-top: 100px;
+    }
+
+    #bottom_menu ul {
+        margin-left: 0;
+        justify-content: space-around;
+    }
+
+    .items_block {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .items {
+        max-width: 100%;
+        text-align: center;
+        font-size: 8px;
+    }
+}

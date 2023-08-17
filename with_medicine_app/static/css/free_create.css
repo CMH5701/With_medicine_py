@@ -1,0 +1,88 @@
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-left: 400px; /* 왼쪽에서 400px 만큼 띄우기 */
+    margin-bottom: 15px; /*아래에서 15만큼 띄우기 */
+}
+
+hr {
+    width: 55%; /* 줄 길이 */
+}
+
+.free {
+    flex-direction: column; /* 세로 배치 */
+    margin-left: 400px;
+}
+
+.create-form-01 input {
+    width: 860px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.create-form-01 input[type="text"] {
+    padding-left: 1em; /* input 요소 중 텍스트 타입에 공백 추가 */
+}
+
+.create-form-02 textarea {
+    width: 860px;
+    height: 350px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding-left: 1em;
+    font-size: 13px;
+}
+
+
+/* #review-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 400px;
+}
+
+#review-maintext {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    height: 400px;
+    margin-left: 400px;
+}
+
+#review-title {
+    position: relative;
+    width: 600px;
+}
+
+textarea {
+    width: 810px;
+    height: 300px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 800px;
+} */
+
+#submit {
+    margin-left: 1050px;
+    border: none;
+
+}
+
+#blue {
+    margin-left: -3px;
+    background-color:rgb(32,88,169);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 15px;
+}

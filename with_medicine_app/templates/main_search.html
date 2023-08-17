@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% if not free_board and not review_board %}
+        <h1>검색 결과가 없습니다</h1>
+    
+        {% else %}
+        {% if free_board %}
+            <h2>자유게시판</h2>
+            {% for free_board_item in free_board %}
+                <div>
+                    <h1>{{ free_board_item.title }}</h1>
+                    <p>{{ free_board_item.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ free_board_item.body }}<a href="{% url 'free_detail' free_board_item.id %}"> ...자세히 보기</a></p> 
+                </div>
+                <br>
+            {% endfor%}
+        {% endif %} 
+    
+        {% if review_board %}
+            <h2>리뷰게시판</h2>
+            {% for review_board_item in review_board.all %}
+                <div>
+                    <h1>{{ review_board_item.title }}</h1>
+                    <p>{{ review_board_item.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ review_board_item.body }}<a href="{% url 'review_detail' review_board_item.id %}"> ...자세히 보기</a></p> 
+                </div>
+                <br>
+            {% endfor %} 
+        {% endif %}
+
+    {% endif %}
+{% endblock %}

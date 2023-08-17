@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>My_posts</title>
+{% endblock %}
+
+{% block content %}
+    <h1>My_posts Page</h1>
+    <hr>
+    <h2>내가 작성한 글</h2>
+    <ul>
+        <p>자유게시판 나의 글</p>
+        {% for post_free in free_my_posts %}
+            <li><a href="{% url 'free_detail' post_free.id %}">{{ post_free.title }}</a></li>
+        {% empty %}
+            <li>작성한 글이 없습니다.</li>
+        {% endfor %}
+        <br>
+        <p>리뷰게시판 나의 글</p>
+        {% for post_review in review_my_posts %}
+            <li><a href="{% url 'review_detail' post_review.id %}">{{ post_review.title }}</a></li>
+        {% empty %}
+            <li>작성한 글이 없습니다.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

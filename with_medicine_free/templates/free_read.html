@@ -1,0 +1,97 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <link rel="stylesheet" href="{% static 'css/free_read.css' %}" type = "text/css"> <!-- css 파일 연결 -->
+    {% endblock %}
+    <title>Free_read</title>
+ 
+</head>
+
+<body>
+    {% block content %}
+    <h1>Free_read</h1>
+    <div id="search-main">
+        <div id="search">
+            <form class="search-form-main" action="{% url 'free_search' %}" method="post">
+                {% csrf_token %}
+                <input type="search" placeholder="게시글 검색하기" aria-label="Search" name="q" value="{{q}}">
+                <button class="btn-outline-success" type="submit">검색</button>
+            </form> 
+        </div>
+    </div>
+    <hr />
+
+<!-- read_list -->
+<table class="sub_news" cellspacing="0" summary="게시판의 글 제목 리스트">
+    <caption> 게시판 리스트 </caption>
+    <colgroup>
+            <col width="80">
+            <col width="300">
+            <col width="100">
+            <col width="150">
+    </colgroup>
+
+    <thead> <!-- 표 머리글-->
+                <tr>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                    <th>좋아요</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 게시판 등록글 tr-->
+                <tr>
+            {% for free_boards in free_boards %}
+                    <td class="title">
+                        <a href="{% url 'free_detail' free_boards.id %}">{{ free_boards.title }}</a>
+                    </td>
+                    <!-- 추후에 td user정보로 변경할 것 -->
+                    <td class="name">{{ free_boards.user }}</td>
+                    <td class="body">{{ free_boards.pub_date }}</td>
+                    <td class="date">{{ free_boards.hits }}</td>
+                    <td>{{ free_boards.like_users.all|length }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+<!-- read_list_end -->
+<div id="submit">
+    <button id="blue" type="submit" onclick="location.href = '{% url 'free_create' %}'">글쓰기</button>
+    </div> 
+
+<!-- 페이징처리 -->
+<div class="pagination"> <!-- Pagination 컨테이너 -->
+    <!-- default/back_page_number 설정-->
+    <ul>
+        {% if free_boards.has_previous %}
+            <li><a href="?page=1">처음으로</a></li>
+            <li><a href="?page={{ free_boards.previous_page_number }}">이전</a></li>
+        {% endif %}
+    <!-- page_list 설정-->
+        {% for page in free_boards.paginator.page_range %}
+        {% if page >= free_boards.number|add:-3 and page <= free_boards.number|add:3 %}
+        {% if page == review_board.number %}
+        <span><a href="?page={{ page }}">{{ page }}</a></span>
+        {% else %}
+        <a href="?page={{ page }}">{{ page }}</a>
+        {% endif %}
+        {% endif %}
+        {% endfor %} 
+    <!-- next_page 설정 -->
+        {% if free_boards.has_next %}
+            <li><a href="?page={{ free_boards.next_page_number }}">다음</a></li>
+            <li><a href="?page={{ free_boards.paginator.num_pages }}">끝으로</a></li>
+        {% endif %}
+    </ul>
+</div>
+<!-- 페이징 끝 -->
+{% endblock %}
+</body>
+</html>

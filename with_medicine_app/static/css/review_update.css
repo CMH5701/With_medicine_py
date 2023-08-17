@@ -1,0 +1,55 @@
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-left: 400px; /* 왼쪽에서 400px 만큼 띄우기 */
+    margin-bottom: 15px; /*아래에서 15만큼 띄우기 */
+}
+
+hr {
+    width: 100%; /* 줄 길이 */
+}
+
+.free-update {
+    display: flex;
+    flex-direction: column; /* 세로 배치 */
+    margin-left: 400px;
+}
+
+.update-form-01 input {
+    width: 860px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.update-form-01 input[type="text"] {
+    padding-left: 1em; /* input 요소 중 텍스트 타입에 공백 추가 */
+}
+
+
+.update-form-02 textarea {
+    width: 860px;
+    height: 350px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding-left: 1em; /* 공백 추가 */
+    font-size: 13px;
+}
+
+#submit {
+    margin-left: 1050px;
+    border: none;
+}
+
+#blue {
+    margin-left: -3px;
+    background-color:rgb(32,88,169);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 15px;
+}

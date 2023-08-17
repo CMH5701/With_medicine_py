@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>Signup</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Signup Page</h1>
+    <hr>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">가입</button>
+    </form>
+{% endblock %}

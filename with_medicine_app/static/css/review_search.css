@@ -1,0 +1,104 @@
+#search-review {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#search-02 {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+}
+
+#search-02 .search-form {
+    display: flex;
+    align-items: center;
+}
+
+#search-02 .search-form input[type="search"] {
+    flex: 1;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    color: #333;
+    background-color: transparent;
+}
+
+#search-02 .btn-review-success {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.card p a {
+    color: #5495F6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        margin-bottom: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .card h1 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+}

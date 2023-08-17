@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>User_Update</title>
+{% endblock %}
+
+{% block content %}
+    <h1>User_Update Page</h1>
+    <hr>
+    <form method="POST" enctype="multipart/form-data"> 
+        <!--enctype="multipart/form-data 는 파일 업로드를 지원하기 위한 속성-->
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="수정하기">
+    </form>
+    <a href="{% url 'main' %}">돌아가기</a>
+{% endblock %}

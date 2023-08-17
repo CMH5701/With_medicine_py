@@ -1,0 +1,103 @@
+.search-form-med {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 950px;
+    margin-top: 80px;
+    margin-left: 350px;
+}
+
+.search-form-med input[type="search"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    font-size: 18px;
+    width: 550px;
+}
+
+.search-form-med input::placeholder {
+    color: #5495F6; /* 흰색으로 설정 */
+}
+
+.search-form-med button {
+    background-color: #5495F6;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    border-color: #5495F6;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form-med button:hover {
+    background-color: #4474C4;
+}
+
+/* 약 모아보기 그리드 스타일 */
+#med-banner {
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    margin-top: 150px;
+}
+
+.grid-container-med {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 5px; /* 기존 gap 값인 20px를 10px로 변경 */
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-top: 20px; /* 카드 위쪽과의 간격을 설정합니다. */
+    margin-bottom: 20px; /* 카드 아래쪽과의 간격을 설정합니다. */
+}
+
+.grid-item-med {
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item-med:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item-med img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.image-name-med {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 10px;
+    color: #444;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .search-form-med {
+        width: 90%;
+        margin-left: 0;
+        padding: 0 20px;
+        margin-top: 30px; /* 상단과의 간격 조정 */
+    }
+
+    .search-form-med input[type="search"] {
+        width: 95%;
+        font-size: 14px;
+    }
+}

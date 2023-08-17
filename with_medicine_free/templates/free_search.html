@@ -1,0 +1,33 @@
+{% extends 'free_read.html' %}
+
+{% load static %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/free_search.css' %}" type = "text/css"> <!-- css 파일 연결 -->
+<title>free_search</title>
+{% endblock %}
+
+{% block content %}
+
+    {% if not free_board %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+        {% for free_board in free_board.all %}
+        <div class="container"> 
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ free_board.title }}</h1>
+                    <p>{{ free_board.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ free_board.body }}<a href="{% url 'free_detail' free_board.id %}"> ...자세히 보기</a></p> 
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %} 
+
+    {% endif %}
+
+{% endblock %}

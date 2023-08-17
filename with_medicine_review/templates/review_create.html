@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Review_create</title>
+    <link rel="stylesheet" href="{% static 'css/review_create.css' %}" type = "text/css"> <!-- css 파일 연결 -->
+{% endblock %}
+
+{% block content %}
+    <h2>리뷰게시판</h2>
+    <hr />
+    <form method="POST" class="free" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="create-form-01">
+            {{ form.title }}
+        </div>
+
+        <div class="create-form-02">
+            {{ form.body }}
+        </div>
+
+        <div>
+            {{ form.image }}
+        </div>
+        
+        <div id="submit">
+            <button id="blue" type="submit" >작성</button>
+        </div> 
+    </form>
+{% endblock %}

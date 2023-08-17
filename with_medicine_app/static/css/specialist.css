@@ -1,0 +1,81 @@
+#specialist-banner {
+    text-align: center;
+    background-size: cover;
+    margin-top: 250px;
+}
+
+.banner-content-specialist {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.banner-content-specialist h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 5%;
+    color: #5495F6;
+}
+
+
+/* 전문의 */
+.profiles-specialist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    margin-top: 50px; /* 카드 위쪽과의 간격을 설정합니다. */
+    flex-wrap: wrap; /* 내용이 너비를 벗어날 경우 다음 줄로 넘어가도록 설정 */
+    gap: 20px; /* 카드 간격을 조정합니다. */
+}
+
+.profile-specialist {
+    display: flex;
+    gap: 5%;
+    flex-direction:  row;
+    align-items: la baseline; /* 카드 내용을 수평 왼쪽  정렬 */
+    max-width: 400px; /* 최대 너비를 설정하여 반응형 처리 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    margin-right: 13px;
+}
+
+.profile-image-specialist img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.profile-info-specialist h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.profile-info-specialist p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .profile-specialist {
+        max-width: 100%; /* 모바일 화면에서 카드가 전체 너비를 차지하도록 설정 */
+        margin: 0 10px; /* 좌우 여백을 설정하여 카드가 너무 붙어있지 않게 함 */
+    }
+
+    .banner-content-specialist h1 {
+        margin-top: 100%; /* 원하는 크기로 조정 */
+    }
+}
+

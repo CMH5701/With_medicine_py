@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Profile Page</h1> 
+    <hr>
+    <img src={% if user.image %}"{{ user.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
+            width="150rem" style="border-radius: 50%;" alt="">
+            
+    <h1>ID : {{ user.username }}</h1>
+    <h3>Name : {{ user.name }}</h3>
+    <h3>Age : {{ user.age }}</h3>
+    <h3>Email : {{ user.email }}</h3>
+    <h3>gender : {{ user.gender }}</h3>
+    <h3>phone_number : {{ user.phone_number }}</h3>
+
+    <a href="{% url 'my_health' %}">나의 건강</a>
+    <a href="{% url 'my_posts' %}">내 글 보기</a>
+
+    {% if request.user == user %}
+        <a href="{% url 'user_update' %}">회원 수정</a> 
+        <a href="{% url 'change_password' %}">비밀번호 수정</a>
+        <form action="{% url 'user_delete' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="회원탈퇴">
+        </form>
+    {% endif %}
+{% endblock %}

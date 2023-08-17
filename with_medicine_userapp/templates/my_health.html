@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>My_health</title>
+{% endblock %}
+
+{% block content %}
+    <h1>My_health Page</h1>
+    <hr>
+     
+    <form method="post">
+        {% csrf_token %}
+
+        <b>키</b>
+        {{ form.height }} 
+        <b>몸무게</b>
+        {{ form.weight }} 
+        <b>병력사항</b>
+        {{ form.medical_history }} 
+
+
+        <button type="submit" class="btn">저장</button>
+    </form>
+        {% if health_info %}
+            <b>키 :</b>
+                {{ health_info.height }}
+            <b>몸무게 :</b>
+                {{ health_info.weight }}
+            <b>기타 병력:</b>
+                {{ health_info.medical_history }}
+        {% endif %}
+{% endblock %}
+
+
+   

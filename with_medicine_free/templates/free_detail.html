@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Free_Detail</title>
+    <link rel="stylesheet" href="{% static 'css/total_detail.css' %}" type="text/css"> <!-- css 파일 연결 -->
+    {% endblock %}
+
+{% block content %}
+    <div class="detail-container">
+      <img src="{% static 'img/01.png' %}">
+        <hr class="divider">
+        <div class="user-profile">
+            <img src={% if free_board.user.image %}"{{ free_board.user.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
+                alt="Profile Image" class="profile-img">
+             {{ free_board.user }}
+      </div>
+        <div class="post-image">
+          <img src={% if free_board.image %}"{{ free_board.image.url }}"{% else %}""{% endif %} alt="">
+        </div>
+        <p class="post-body">  {{ free_board.body }}</p>
+        <p class="post-hits">조회수 : {{ free_board.hits }}</p>
+        <p class="post-date">작성일 : {{ free_board.pub_date }}</p>
+        <br>
+          <!--좋아요 기능 ... -->
+          <div>
+            <form action="{% url 'free_like' free_board.id %}" method='POST'>
+              {% csrf_token %}
+              <button style='border:none;'>
+              {% if user in free_board.like_users.all %}
+              <i class="fas fa-heart" style="color:red; font-size: 17px;"></i>
+              {% else %}
+              <i class="far fa-heart" style="color:red; font-size: 17px;"></i>
+              {% endif %}
+            </button>
+            <span>
+              {{ free_board.like_users.all|length }} 명이 이 글을 좋아합니다.
+            </span>
+          </p>
+            </form>
+          </div>
+          {% if free_board.user == user %}
+        <div class="btn-group">
+        <a href="{% url 'free_update' free_board.id %}" class="btn">글 수정하기</a>
+        <a href="{% url 'free_delete' free_board.id %}" class="btn">글 삭제하기</a>
+        </div>
+        <hr class="divider">
+        {% endif %}
+
+      
+        {% for comment in free_board.comment.all %}
+    <div class="comment">
+        <div class="comment-user-profile">
+            <img src={% if comment.user.image %}"{{ comment.user.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %}  
+                alt="Profile Image" class="profile-img">
+            {{ comment.user }}
+        </div>
+        <p class="comment-content"> {{ comment }}</p>
+
+        {% if comment.user == user %}
+        <div class="comment-actions">
+            <a href="{% url 'free_comment_update' free_board.id comment.id %}" class="btn">댓글 수정하기</a>
+            <a href="{% url 'free_comment_delete' free_board.id comment.id %}" class="btn">댓글 삭제하기</a>
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+    <div>댓글이 없습니다.</div>
+{% endfor %}     
+<hr class="divider">
+        <form method="POST" action="{% url 'free_detail' free_board.id %}" class="comment-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">작성</button>
+        </form>
+    </div>
+{% endblock %}

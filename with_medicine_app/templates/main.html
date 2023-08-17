@@ -1,0 +1,191 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Main</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type = "text/css"> <!-- css 파일 연결 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome 라이브러리를 CDN으로 로드(좋아요 기능 사용)-->
+</head>
+<body>
+    <header>
+        <nav id="topmenu"> <!--nav 메뉴바-->
+        <img src="{% static 'img/01.png' %}">
+        <ul>
+    <li><a class="menulink"href="{% url 'main' %}">Home</a></li>
+    <li><a class="menulink"href="{% url 'medicines' %}">약 모아보기</a></li>
+    <li><a class="menulink"href="{% url 'free_read' %}">자유게시판</a></li>
+    <li><a class="menulink"href="{% url 'review_read' %}">리뷰게시판</a></li>
+    <li><a class="menulink"href="{% url 'specialist' %}">전문의 상담</a></li>
+    
+    <div id="login-signup"> <!--회원가입&로그인 작성 칸-->
+        <span id="login-signup-text">
+    
+        {% if user.is_active %}
+        {{ user.username }} 님 안녕하세요 <a href="{% url 'logout' %}">로그아웃</a>
+        <a href="{% url 'user_detail' pk=user.pk %}">마이페이지</a>
+    {% else %}
+        <a class="menulink"  href="{% url 'signup' %}">회원가입</a>
+        <a class="menulink"  href="{% url 'login' %}">로그인</a>
+    {% endif %}
+</span>
+</div>
+</ul>
+</nav>
+</header>  
+
+{% block content %}
+    <div id="main-banner"> <!-- 메인 배너 약 이미지-->
+        <img src="../static/img/main_02.jpg" alt="메인배너 약 이미지">
+        <div class="banner-text">무슨 약이 필요하신가요?</div> <!-- 배너 중앙 텍스트-->
+    </div>
+    
+    <!--검색 기능-->
+    <form class="search-form-main" action="{% url 'main_search' %}" method="post">
+        {% csrf_token %}
+    <input type="search" placeholder="의약품명, 증상, 성분명을 입력하세요." aria-label="Search" name="q" value="{{q}}">
+    <button type="submit">검색</button>
+    </form>
+    </div>
+
+<!-- 약 페이지 -->
+<div id="grid-banner">
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="../static/img/pills1.png" alt="이미지 1">
+            <div class="image-name">제포정 / 현대약품 / Lornoxicam 4mg</div>
+        </div>
+        <div class="grid-item">
+            <img src="../static/img/pills2.png" alt="이미지 2">
+            <div class="image-name">제포정 / 현대약품 /  Lornoxicam 8mg</div>
+        </div>
+        <div class="grid-item">
+            <img src="../static/img/pills3.png" alt="이미지 3">
+            <div class="image-name">뉴시캄캡슐 15mg / 신풍제약 /  Meloxicam 15mg</div>
+        </div>
+        <div class="grid-item">
+            <img src="../static/img/pills4.png" alt="이미지 4">
+            <div class="image-name">제포정 / 현대약품 /  Lornoxicam 8mg</div>
+        </div>
+        <div class="grid-item">
+            <img src="../static/img/pills1.png" alt="이미지 1">
+            <div class="image-name">제포정 / 현대약품 / Lornoxicam 4mg</div>
+        </div>
+        <div class="grid-item">
+            <img src="../static/img/pills2.png" alt="이미지 2">
+            <div class="image-name">제포정 / 현대약품 /  Lornoxicam 8mg</div>
+        </div>
+    </div>
+
+    <div class="board-square">
+        <div class="square-box">
+            <div class="thin-box-01">
+                <h3>자유게시판</h3>
+                <div class="thin-box-board"></div>
+            </div>
+            {% for free_boards in free_boards %}
+            <div class="thin-box-02">
+                <div class="thin-box">
+                    <a href="{% url 'free_detail' free_boards.id %}">{{ free_boards.title }}</a>
+                </div>
+            </div>
+    {% endfor %}
+    
+        <div class="square-box">
+            <div class="thin-box-01">
+                <h3>리뷰게시판</h3>
+                <div class="thin-box-board"></div>
+            </div>
+            {% for review_boards in review_boards %}
+            <div class="thin-box-02">
+                <div class="thin-box">
+                    <a href="{% url 'free_detail' review_boards.id %}">{{ review_boards.title }}</a>
+                </div>
+            </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+
+    <div class="profiles">
+        <div class="profile">
+            <div class="profile-image">
+                <img src="{% static 'img/profile-01.jpg' %}" alt="Profile Image">
+            </div>
+            <div class="profile-info">
+                <h3>한소희</h3>
+                <p>새로운 병원 신경외과 전문의 원장</p>
+                <p>전문 분야 : 신경외과</p>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-image">
+                <img src="{% static 'img/profile-02.jpg' %}" alt="Profile Image">
+            </div>
+            <div class="profile-info">
+                <h3>소희한</h3>
+                <p>새로운 병원 소아과 전문의 원장</p>
+                <p>전문 분야 : 소아과</p>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-image">
+                <img src="{% static 'img/profile-03.jpg' %}" alt="Profile Image">
+            </div>
+            <div class="profile-info">
+                <h3>김유정</h3>
+                <p>새로운 병원 정형외과 전문의 원장</p>
+                <p>전문 분야 : 정형외과</p>
+            </div>
+        </div>
+    </div>
+    
+ <!--자유, 리뷰 게시판 이미지..?-->
+ {% comment %} <img src={% if free_board.image %}"{{ free_board.image.url }}"{% else %}""{% endif %} 
+ width = "300" alt=""> {% endcomment %}
+{% endblock %}
+
+<!-- 고정 값 -->
+<footer>
+    <div class="f_box">
+    <nav id="bottom_menu">
+        <ul>
+            <li>약과함께 소개</li>
+            <li>개인정보처리방침</li>
+            <li>저작권 정보</li>
+            <li>이용 안내</li>
+        </ul>
+    </nav>
+    <div class="items_block">
+        <div class="items">
+            <h3 class="footer_content">문의정보</h3>
+            <ul>
+                <li>123-1234</li>
+                <li>10:00 - 18:00(Lunch 12:00 - 13:00)</li>
+            </ul>
+        </div> <!-- items -->
+        <div class="items">
+            <h3 class="footer_content">약과함께</h3>
+            <ul>
+                <li >주소 : 경기도 용인시 기흥구 동백대로 123</li>
+                <li>전화 : 031-123-1234</li>
+                <li>팩스 : 031-123-1234</li>
+                <li>이메일 : 123-12-12345</li>
+            </ul>
+        </div> <!-- items -->
+        <div class="items">
+            <h3 class="footer_content">입금 정보</h3>
+            <ul>
+                <li>국민 123-123-123456</li>
+                <li>anyonemore</li>
+            </ul>
+        </div> <!-- items -->   
+    </div>      
+    </div> <!-- box -->
+</footer>
+</body>
+</html>
